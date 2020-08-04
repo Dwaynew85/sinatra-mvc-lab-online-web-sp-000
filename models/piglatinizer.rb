@@ -1,9 +1,7 @@
 class PigLatinizer
-  attr_accessor :text
-
-  def initialize(text)
-    @text = text
-  end
+  # figure out if it's a word or sentence 
+  # piglatinize based on word or sentnece 
+  # return piglatinized 
 
   def piglatinize_word(word)
     vowels = %w(a e i o u A E I O U)
@@ -21,10 +19,17 @@ class PigLatinizer
     @piglatin.class == Array ? @piglatin.join : @piglatin
   end
 
-  def piglatinize
-    words = @text.split(" ")
+  def piglatinize_sentence(sentence)
+    words = sentence .split(" ")
     piglatin = words.map {|word| piglatinize_word(word)}
     piglatin.join(" ")
   end
 
+  def piglatinize(statement)
+    if statement.split(" ").count == 1
+      piglatinize_word(statement)
+    else
+      piglatinize_sentence(statement)
+    end 
+  end
 end
