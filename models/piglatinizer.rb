@@ -11,7 +11,7 @@ class PigLatinizer
     if vowels.include?(word[0])
       @piglatin = word + "way"
     else
-      letters = word.split('') 
+      letters = word.split('')
       until vowels.include?(letters[0])
         consonants << letters[0]
         letters.shift
