@@ -5,20 +5,20 @@ class PigLatinizer
     @text = text
   end
 
-  def piglatinize_word(word) (/[aeiou]/)
+  def piglatinize_word(word)
     vowels = %w(a e i o u A E I O U)
     consonants = []
     if vowels.include?(word[0])
-      word + "way"
+      @piglatin = word + "way"
     else
-      letters = word.split('') # splits word into individual letters
+      letters = word.split('') 
       until vowels.include?(letters[0])
         consonants << letters[0]
         letters.shift
       end
       @piglatin = letters + consonants << "ay"
     end
-    @piglatin.join
+    @piglatin.class == Array ? @piglatin.join : @piglatin
   end
 
   def piglatinize
