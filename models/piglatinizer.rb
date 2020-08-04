@@ -1,7 +1,7 @@
 class PigLatinizer
-  # figure out if it's a word or sentence 
-  # piglatinize based on word or sentnece 
-  # return piglatinized 
+  # figure out if it's a word or sentence
+  # piglatinize based on word or sentnece
+  # return piglatinized
 
   def piglatinize_word(word)
     vowels = %w(a e i o u A E I O U)
@@ -30,6 +30,6 @@ class PigLatinizer
       piglatinize_word(statement)
     else
       piglatinize_sentence(statement)
-    end 
+    end
   end
 end
