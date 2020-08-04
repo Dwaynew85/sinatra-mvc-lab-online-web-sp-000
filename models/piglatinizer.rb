@@ -10,7 +10,7 @@ class PigLatinizer
     consonants = []
     if vowels.include?(word[0])
       word + "way"
-    else 
+    else
       letters = word.split('') # splits word into individual letters
       until vowels.include?(letters[0])
         consonants << letters[0]
