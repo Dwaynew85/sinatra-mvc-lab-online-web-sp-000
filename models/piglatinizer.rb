@@ -5,20 +5,20 @@ class PigLatinizer
     @text = text
   end
 
-  def piglatinize_word(word)
-    letter = word[0].downcase # "word"
-    if letter.start_with?(/[aeiou]/) # if "word" doesn't start with a vowel, "wordway"
-      "#{word}way"
-    else
-      constonants = [] # save constonant to add from letters array
-      # iterate through array of letters, adding to constanants if not a vowel
-      letters.each do |letter|
-        until letter.start_with?(/[aeiou]/)
-          constonants << letter
-        end
-        binding.pry
+  def piglatinize_word(word) (/[aeiou]/)
+    vowels = %w(a e i o u A E I O U)
+    consonants = []
+    if vowels.include?(word[0])
+      word + "way"
+    else 
+      letters = word.split('') # splits word into individual letters
+      until vowels.include?(letters[0])
+        consonants << letters[0]
+        letters.shift
       end
+      @piglatin = letters + consonants << "ay"
     end
+    @piglatin.join
   end
 
   def piglatinize
